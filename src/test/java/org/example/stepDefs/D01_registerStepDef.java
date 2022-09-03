@@ -5,8 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.P01_Register;
-import org.openqa.selenium.By;
-import org.testng.Assert;
+
 import org.testng.asserts.SoftAssert;
 
 public class D01_registerStepDef {
@@ -42,7 +41,7 @@ P01_Register register = new P01_Register();
     @And("user enter email \"test@example.com\" field")
     public void userEmail()
     {
-        register.emailPOM().sendKeys("test@example1.com");
+        register.emailPOM().sendKeys("test@example.com");
     }
 
     @And("user fills password fields \"P@ssw0rd\" \"P@ssw0rd\"")

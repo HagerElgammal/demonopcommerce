@@ -24,11 +24,20 @@ public class D02_loginStepDef {
     public void loginButton(){ login.loginButtonPOM().click();}
 
     @And ("user login to the system successfully")
-    public void loginSuccess(){}
+    public void loginSuccess(){
+
+    }
 
 
     @And("user could not login to the system")
-    public void loginNotSuccess(){}
+    public void loginNotSuccess(){
+
+        String actualColor = login.failMessagePOM().getCssValue("color");
+        String expectedColor = "rgba(228, 67, 75, 1)";
+        System.out.println("The color of this message is red " + actualColor);
+
+
+    }
 
 
 }

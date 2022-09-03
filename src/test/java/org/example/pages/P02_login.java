@@ -2,7 +2,7 @@ package org.example.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.asserts.SoftAssert;
+
 
 import static org.example.stepDefs.Hooks.driver;
 
@@ -32,10 +32,10 @@ public class P02_login {
     public void LoginSteps(String email, String password)
 
     {
-        //Enter Email using POM
+
         emailPOM().sendKeys(email);
 
-        //Enter password using POM
+
         passwordPOM().sendKeys(password);
     }
 
@@ -44,6 +44,13 @@ public class P02_login {
         By loginButton = By.cssSelector("div > button[type=\"submit\"]");
         WebElement loginButtonEle = driver.findElement(loginButton);
        return loginButtonEle;
+    }
+
+    public WebElement failMessagePOM()
+    {
+        By failMessage = By.className("message-error");
+        WebElement failMessageEle = driver.findElement(failMessage);
+        return failMessageEle;
     }
 
 }

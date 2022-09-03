@@ -5,7 +5,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.P02_login;
-import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
 import static org.example.stepDefs.Hooks.driver;
@@ -14,7 +13,6 @@ import static org.example.stepDefs.Hooks.driver;
 public class D02_loginStepDef {
 
     P02_login login = new P02_login();
-
 
     @Given ("user go to login page")
     public void loginPage(){login.loginLink().click();}
@@ -40,8 +38,6 @@ public class D02_loginStepDef {
 
 
     }
-
-
 
     @And("user could not login to the system")
     public void loginNotSuccess(){

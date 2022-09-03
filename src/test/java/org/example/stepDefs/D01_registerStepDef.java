@@ -24,10 +24,10 @@ P01_Register register = new P01_Register();
         register.selectGenderPOM().click();
 
     }
-    @And("user enter firstname \"automation\" and lastname \"tester\"")
-    public void validData()
+    @And("user enter firstname {string} and lastname {string}")
+    public void validData(String arg0,String arg1)
     {
-        register.P01_RegisterSteps("automation","tester");
+        register.P01_RegisterSteps(arg0,arg1);
     }
 
     @And("user enter date of birth")
@@ -38,17 +38,17 @@ P01_Register register = new P01_Register();
         register.dateOfBirthYearPOM().sendKeys("1987");
     }
 
-    @And("user enter email \"test@example.com\" field")
-    public void userEmail()
+    @And("user enter email {string} field")
+    public void userEmail(String email)
     {
-        register.emailPOM().sendKeys("test@example.com");
+        register.emailPOM().sendKeys(email);
     }
 
-    @And("user fills password fields \"P@ssw0rd\" \"P@ssw0rd\"")
-    public void userPassword()
+    @And("user fills password fields {string}")
+    public void userPassword(String password)
     {
-        register.passwordPOM().sendKeys("P@ssw0rd");
-        register.confirmPasswordPOM().sendKeys("P@ssw0rd");
+        register.passwordPOM().sendKeys(password);
+        register.confirmPasswordPOM().sendKeys(password);
     }
 
     @Then("user clicks on register button")

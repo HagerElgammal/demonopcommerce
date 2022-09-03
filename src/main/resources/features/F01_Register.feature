@@ -7,7 +7,7 @@ Feature: F01_Register | users could register with new accounts
     And user enter firstname "automation" and lastname "tester"
     And user enter date of birth
     And user enter email "test@example.com" field
-    And user fills password fields "P@ssw0rd" "P@ssw0rd"
+    And user fills password fields "P@ssw0rd"
     Then user clicks on register button
     And success message is displayed
 

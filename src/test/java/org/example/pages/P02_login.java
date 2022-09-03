@@ -53,4 +53,13 @@ public class P02_login {
         return failMessageEle;
     }
 
+    public WebElement myAccountPOM()
+    {
+        By myAccount = By.className("ico-account");
+        WebElement myAccountEle = driver.findElement(myAccount);
+        return myAccountEle;
+    }
+
+
+
 }

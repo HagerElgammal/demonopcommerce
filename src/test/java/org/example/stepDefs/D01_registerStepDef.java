@@ -42,7 +42,7 @@ P01_Register register = new P01_Register();
     @And("user enter email \"test@example.com\" field")
     public void userEmail()
     {
-        register.emailPOM().sendKeys("test@example.com");
+        register.emailPOM().sendKeys("test@example1.com");
     }
 
     @And("user fills password fields \"P@ssw0rd\" \"P@ssw0rd\"")
@@ -63,8 +63,9 @@ P01_Register register = new P01_Register();
     {
         SoftAssert soft = new SoftAssert();
 
-        String Color = register.successMessagePom().getCssValue("color");
-        System.out.println(" The color of this message is green "+ Color);
+        String actualColor = register.successMessagePom().getCssValue("color");
+        String expectedColor = "rgba(76, 177, 124, 1)";
+        System.out.println(" The color of this message is green "+ actualColor);
 
         String expectedResult = "Your registration completed";
         String actualResult =register.successMessagePom().getText();
@@ -75,7 +76,7 @@ P01_Register register = new P01_Register();
 
         //Second Assertion
         System.out.println("Second Assertion");
-        soft.assertEquals(actualResult.contains(expectedResult),true,"Second Assertion");
+        soft.assertEquals(actualColor.contains(expectedColor),true,"Second Assertion");
         // Assert All
         soft.assertAll();
 

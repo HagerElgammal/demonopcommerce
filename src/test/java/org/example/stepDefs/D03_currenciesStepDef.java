@@ -4,11 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.example.pages.P03_homePage;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
-import static org.example.stepDefs.Hooks.driver;
 
 public class D03_currenciesStepDef {
 
@@ -17,22 +17,26 @@ public class D03_currenciesStepDef {
 
 
     @Given("user select Euro from list on the top of home page")
-    public void dynamicSelectEuro() throws InterruptedException {
+    public void dynamicSelectEuro() {
         WebElement list = homePage.CurrencyPOM();
         Select customerCurrency = new Select(list);
         customerCurrency.selectByVisibleText("Euro");
+
     }
 
-    @Then("featured  product 1 will be in Euro currency")
-    public void product1(){}
+    @Then("featured 4 products  will be in Euro currency")
+    public void product(){
+        String actualResult = String.valueOf(homePage.productInEuro());
+        String expectedResult = "4";
+        Assert.assertEquals(actualResult.contains(expectedResult),true);
+        Assert.assertTrue(actualResult.contains(expectedResult));
 
-    @And("featured  product 2 will be in Euro currency")
-    public void product2(){}
+    }
+    @And("user print the value of 4 product")
+    public void printProduct(){
+        homePage.productValue();
 
-    @And("featured  product 3 will be in Euro currency")
-    public void product3(){}
 
-    @And("featured  product 4 will be in Euro currency")
-    public void product4(){}
+    }
 
 }

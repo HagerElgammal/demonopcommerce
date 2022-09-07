@@ -11,16 +11,14 @@ public class P02_login {
 
     public WebElement loginLink()
     {
-        WebElement log = driver.findElement(By.className("ico-login"));
-        return log;
+        return driver.findElement(By.className("ico-login"));
 
     }
 
     public WebElement emailPOM()
     {
         By email = By.id("Email");
-        WebElement emailEle = driver.findElement(email);
-        return emailEle ;
+        return driver.findElement(email);
     }
 
     public WebElement passwordPOM()

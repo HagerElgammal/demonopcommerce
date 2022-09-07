@@ -28,22 +28,16 @@ public class D02_loginStepDef {
     @And ("user login to the system successfully")
     public void loginSuccess() {
         SoftAssert soft = new SoftAssert();
-
         System.out.println("First Assertion ");
         soft.assertEquals(driver.getCurrentUrl(),"https://demo.nopcommerce.com/" , "First Assertion Equals");
         System.out.println("Second Assertion");
         soft.assertTrue(login.myAccountPOM().isDisplayed(),"Second Assertion True");
-
         soft.assertAll();
-
-
-
     }
 
     @And("user could not login to the system")
     public void loginNotSuccess(){
         SoftAssert soft = new SoftAssert();
-
         String actualResult = login.failMessagePOM().getText();
         String expectedResult = "Login was unsuccessful. Please correct the errors and try again.";
         soft.assertTrue(actualResult.contains(expectedResult),"First Assertion");
@@ -51,10 +45,10 @@ public class D02_loginStepDef {
 
         String actualColor = login.failMessagePOM().getCssValue("color");
         String expectedColor = "rgba(228, 67, 75, 1)";
+        soft.assertTrue(actualColor.contains(expectedColor),"Second Assertion");
         System.out.println("The color of this message is red " + actualColor);
 
         soft.assertAll();
-
     }
 
 

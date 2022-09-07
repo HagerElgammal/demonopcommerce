@@ -24,17 +24,17 @@ public class D03_currenciesStepDef {
 
     }
 
-    @Then("featured 4 products  will be in Euro currency")
+    @Then("featured 4 products will be in Euro currency")
     public void product(){
-        String actualResult = String.valueOf(homePage.productInEuro());
+        String actualResult = String.valueOf(homePage.productFound());
         String expectedResult = "4";
-        Assert.assertEquals(actualResult.contains(expectedResult),true);
         Assert.assertTrue(actualResult.contains(expectedResult));
+
 
     }
     @And("user print the value of 4 product")
     public void printProduct(){
-        homePage.productValue();
+        homePage.productValue("€");
 
 
     }

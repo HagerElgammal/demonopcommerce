@@ -17,7 +17,7 @@ public class D02_loginStepDef {
     @Given ("user go to login page")
     public void loginPage(){login.loginLink().click();}
 
-    @When ("user login with \"(.*)\" and \"(.*)\"$")
+    @When ("user login with {string} and {string}")
     public void loginData(String email, String password){
         login.LoginSteps( email, password);
     }
@@ -28,10 +28,14 @@ public class D02_loginStepDef {
     @And ("user login to the system successfully")
     public void loginSuccess() {
         SoftAssert soft = new SoftAssert();
-        System.out.println("First Assertion ");
-        soft.assertEquals(driver.getCurrentUrl(),"https://demo.nopcommerce.com/" , "First Assertion Equals");
-        System.out.println("Second Assertion");
+
+        String actualUrl = driver.getCurrentUrl();
+        String expectedResult = "https://demo.nopcommerce.com/";
+        soft.assertEquals(actualUrl,expectedResult);
+        System.out.println("The web page is : "+ actualUrl);
+
         soft.assertTrue(login.myAccountPOM().isDisplayed(),"Second Assertion True");
+
         soft.assertAll();
     }
 
@@ -40,12 +44,13 @@ public class D02_loginStepDef {
         SoftAssert soft = new SoftAssert();
         String actualResult = login.failMessagePOM().getText();
         String expectedResult = "Login was unsuccessful. Please correct the errors and try again.";
-        soft.assertTrue(actualResult.contains(expectedResult),"First Assertion");
+        soft.assertTrue(actualResult.contains(expectedResult));
         System.out.println("The error message :" + actualResult);
 
         String actualColor = login.failMessagePOM().getCssValue("color");
         String expectedColor = "rgba(228, 67, 75, 1)";
-        soft.assertTrue(actualColor.contains(expectedColor),"Second Assertion");
+
+        soft.assertTrue(actualColor.contains(expectedColor));
         System.out.println("The color of this message is red " + actualColor);
 
         soft.assertAll();

@@ -6,11 +6,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.P01_Register;
 
+import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 
 public class D01_registerStepDef {
-
-P01_Register register = new P01_Register();
+    P01_Register register = new P01_Register();
 
     @Given("user go to register page")
     public void registerPage()
@@ -33,9 +33,13 @@ P01_Register register = new P01_Register();
     @And("user enter date of birth")
     public void birthDate()
     {
-        register.dateOfBirthDayPOM().sendKeys("14");
-        register.dateOfBirthMonthPOM().sendKeys("May");
-        register.dateOfBirthYearPOM().sendKeys("1987");
+        Select day = new Select(register.dateOfBirthDayPOM());
+        day.selectByIndex(14);
+        Select month = new Select(register.dateOfBirthMonthPOM());;
+        month.selectByValue("5");
+        Select year = new Select(register.dateOfBirthYearPOM());
+        year.selectByVisibleText("1987");
+
     }
 
     @And("user enter email {string} field")
@@ -68,15 +72,10 @@ P01_Register register = new P01_Register();
 
         String expectedResult = "Your registration completed";
         String actualResult =register.successMessagePom().getText();
+        System.out.println("THe Message is:" + actualResult);
+        soft.assertTrue(actualResult.contains(expectedResult));
+        soft.assertEquals(actualColor.contains(expectedColor),true);
 
-        //First Assertion
-        System.out.println("First Assertion");
-        soft.assertTrue(actualResult.contains(expectedResult),"First Assertion");
-
-        //Second Assertion
-        System.out.println("Second Assertion");
-        soft.assertEquals(actualColor.contains(expectedColor),true,"Second Assertion");
-        // Assert All
         soft.assertAll();
 
     }

@@ -1,10 +1,7 @@
 package org.example.stepDefs;
-
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.example.pages.P03_homePage;
-
+import io.cucumber.java.en.When;
+import org.example.pages.P03_currencies;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -12,31 +9,33 @@ import org.testng.Assert;
 
 public class D03_currenciesStepDef {
 
-    P03_homePage homePage = new P03_homePage();
+    P03_currencies currencies = new P03_currencies();
 
-
-
-    @Given("user select Euro from list on the top of home page")
+    @When("user select Euro from list on the top of home page")
     public void dynamicSelectEuro() {
-        WebElement list = homePage.CurrencyPOM();
-        Select customerCurrency = new Select(list);
-        customerCurrency.selectByVisibleText("Euro");
+
+        WebElement currency_List = currencies.currencyPOM();
+        Select select = new Select(currency_List);
+        select.selectByVisibleText("Euro");
 
     }
 
-    @Then("featured 4 products will be in Euro currency")
-    public void product(){
-        String actualResult = String.valueOf(homePage.productFound());
-        String expectedResult = "4";
-        Assert.assertTrue(actualResult.contains(expectedResult));
+    @Then("featured 4 products will be displayed in Euro currency")
+    public void productDisplayEuroPrices (){
 
+
+       for(int x = 0; x<currencies.prices().size(); x++) {
+           String value = currencies.prices().get(x).getText();
+
+
+           String actualResult =currencies.prices().get(x).getText();
+           String expectedResult = "€";
+           System.out.println(actualResult);
+           Assert.assertTrue(actualResult.contains(expectedResult));
+
+       }
 
     }
-    @And("user print the value of 4 product")
-    public void printProduct(){
-        homePage.productValue("€");
 
-
-    }
 
 }

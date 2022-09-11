@@ -10,15 +10,13 @@ public class P01_Register {
 
     public WebElement registerLink()
     {
-        WebElement reg = driver.findElement(By.className("ico-register"));
-        return reg;
+        return driver.findElement(By.className("ico-register"));
     }
 
    public WebElement selectGenderPOM()
    {
        By gender = By.id("gender-female");
-       WebElement genderEle = driver.findElement(gender);
-       return genderEle;
+       return driver.findElement(gender);
 
    }
 
@@ -36,68 +34,58 @@ public class P01_Register {
     public WebElement firstNamePOM()
     {
         By firstname = By.id("FirstName");
-        WebElement firstnameEle = driver.findElement(firstname);
-        return firstnameEle;
+        return driver.findElement(firstname);
     }
 
     public WebElement lastNamePOM()
     {
         By lastname = By.id("LastName");
-        WebElement lastnameEle = driver.findElement(lastname);
-        return lastnameEle;
+        return driver.findElement(lastname);
     }
 
     public WebElement dateOfBirthDayPOM()
     {
         By dateOfBirthDay = By.name("DateOfBirthDay");
-        WebElement dateOfBirthDayEle = driver.findElement(dateOfBirthDay);
-        return dateOfBirthDayEle;
+        return driver.findElement(dateOfBirthDay);
     }
         public WebElement dateOfBirthMonthPOM()
     {
         By dateOfBirthMonth = By.name("DateOfBirthMonth");
-        WebElement dateOfBirthMonthEle = driver.findElement(dateOfBirthMonth);
-        return dateOfBirthMonthEle;
+        return driver.findElement(dateOfBirthMonth);
     }
     public WebElement dateOfBirthYearPOM()
     {
         By dateOfBirthYear = By.name("DateOfBirthYear");
-        WebElement dateOfBirthYearEle = driver.findElement(dateOfBirthYear);
-        return dateOfBirthYearEle;
+        return driver.findElement(dateOfBirthYear);
     }
     public WebElement emailPOM()
     {
         By email = By.id("Email");
-        WebElement emailEle = driver.findElement(email);
-        return emailEle;
+        return driver.findElement(email);
     }
 
     public WebElement passwordPOM()
     {
         By password = By.id("Password");
-        WebElement passwordEle = driver.findElement(password);
-        return passwordEle;
+        return driver.findElement(password);
     }
 
     public WebElement confirmPasswordPOM()
     {
         By confirmPassword = By.id("ConfirmPassword");
-        WebElement confirmPasswordEle = driver.findElement(confirmPassword);
-        return confirmPasswordEle;
+        return driver.findElement(confirmPassword);
     }
 
     public WebElement registerButtonPOM()
     {
         By registerButton = By.id("register-button");
-        WebElement registerButtonEle = driver.findElement(registerButton);
-        return registerButtonEle;
+        return driver.findElement(registerButton);
     }
 
     public WebElement successMessagePom()
     {
         By successMessage = By.className("result");
-        WebElement successMessageEle = driver.findElement(successMessage);
-        return successMessageEle;
+        return driver.findElement(successMessage);
     }
 
 

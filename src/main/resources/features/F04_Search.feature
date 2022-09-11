@@ -1,17 +1,26 @@
 @smoke
-Feature: F04_Search.feature| users could use search functionality to search for products
+Feature: F04_Search.feature| users could use different parameters to search for products
 
-  Scenario: user could search using product name
-    Given user search for "laptop"
-    When user clicks on search button
-    Then user go to search page
-    And user search shows the result
-    And user found correct name of search in search result
+  Scenario Outline: user could search using product name
 
 
-  Scenario: user could search for product using sku
-    Given user search for "M8_HTC_5L"
-    When user clicks on search button
-    And user find the product
-    Then user clicks on product name
-    And user match the search sku successfully
+    When user clicks on search field
+    And user search with "<productName>"
+    Then user search find "<productName>" relative results
+
+    Examples:
+    |productName|
+    |book |
+    |laptop|
+    |nike|
+
+  Scenario Outline: user could search for product using sku
+    When user clicks on search field
+    And user search with "<sku>"
+    Then user search finds "<sku>" relative results
+
+    Examples:
+      |sku|
+      |SCI_FAITH|
+      |APPLE_CAM|
+      |SF_PRO_11|

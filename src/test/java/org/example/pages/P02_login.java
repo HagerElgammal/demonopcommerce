@@ -24,8 +24,7 @@ public class P02_login {
     public WebElement passwordPOM()
     {
         By password = By.id("Password");
-        WebElement passwordEle = driver.findElement(password);
-        return passwordEle ;
+        return driver.findElement(password);
     }
     public void LoginSteps(String email, String password)
 
@@ -40,22 +39,19 @@ public class P02_login {
     public WebElement loginButtonPOM()
     {
         By loginButton = By.cssSelector("div > button[type=\"submit\"]");
-        WebElement loginButtonEle = driver.findElement(loginButton);
-       return loginButtonEle;
+        return driver.findElement(loginButton);
     }
 
     public WebElement failMessagePOM()
     {
         By failMessage = By.className("message-error");
-        WebElement failMessageEle = driver.findElement(failMessage);
-        return failMessageEle;
+        return driver.findElement(failMessage);
     }
 
     public WebElement myAccountPOM()
     {
         By myAccount = By.className("ico-account");
-        WebElement myAccountEle = driver.findElement(myAccount);
-        return myAccountEle;
+        return driver.findElement(myAccount);
     }
 
 

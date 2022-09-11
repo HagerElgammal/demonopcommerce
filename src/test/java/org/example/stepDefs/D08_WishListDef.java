@@ -6,10 +6,7 @@ import io.cucumber.java.en.When;
 import org.example.pages.P08_Wishlist;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
-
 import java.util.concurrent.TimeUnit;
-
-import static com.google.common.collect.Range.greaterThan;
 import static org.example.stepDefs.Hooks.driver;
 
 public class D08_WishListDef {
@@ -46,9 +43,10 @@ public class D08_WishListDef {
     @And("user find the product in the wishlist")
     public void findProInWlist() {
 
-        String proCount = wishlist.wishCount().getCssValue("value");
-
+        String proCount = wishlist.wishCount().getAttribute("value");
         System.out.println("No: " +proCount);
+        String x = "0";
+        Assert.assertEquals(proCount.contains((x)),false);
 
 
 

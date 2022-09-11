@@ -45,13 +45,11 @@ public class D08_WishListDef {
 
         String proCount = wishlist.wishCount().getAttribute("value");
         System.out.println("No: " +proCount);
-        String x = "0";
-        Assert.assertEquals(proCount.contains((x)),false);
+        int x = 0 ;
+        int y = Integer.parseInt(proCount);
 
-
-
-
-   //     Assert.assertTrue(, "value is greater");
+        Assert.assertTrue(x<y,"Qty is bigger than Zero");
 
     }
-    }
+
+}

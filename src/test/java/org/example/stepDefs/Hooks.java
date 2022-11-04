@@ -15,7 +15,7 @@ public class Hooks {
     public static void openBrowser()
     {
         //1- Bridge
-        System.setProperty("webdriver.chrome.driver","src\\main\\resources\\chromedriver.exe");
+       System.setProperty("webdriver.chrome.driver","src\\main\\resources\\chromedriver2.exe");
 
 
         //2- Create new Object From ChromeDriver

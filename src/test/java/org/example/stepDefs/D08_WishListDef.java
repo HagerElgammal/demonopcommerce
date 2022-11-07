@@ -33,6 +33,7 @@ public class D08_WishListDef {
         System.out.println(" The color of this message is green "+ actualBColor);
         soft.assertEquals(actualBColor.contains(expectedBColor),true);
         soft.assertAll();
+
     }
 
     @Then("user clicks on wishlist Tab on the top of the page")
